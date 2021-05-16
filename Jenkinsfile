@@ -1,10 +1,16 @@
 pipeline {
-	agent { docker { image 'maven:3.6.3' } }
+	//agent { docker { image 'maven:3.6.3' } }
+	agent any
     stages {
         stage('build') {
             steps {
 				echo "Build"
-				sh 'mvn --version'
+				echo "PATH - $PATH"
+				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
+				echo "BUILD_ID - $env.BUILD_ID"
+				echo "JOB_NAME - $env.JOB_NAME"
+				echo "JOB_NAME - $env.JOB_NAME"
+				echo "BUILD_URL - $env.BUILD_URL"
             }
         }
 		stage('Test') {
